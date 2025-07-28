@@ -1,0 +1,25 @@
+secret:
+  account1:
+    apiKey: "1234567890"
+    apiSecret: "1234567890"
+  account2:
+    apiKey: "1234567890"
+    apiSecret: "1234567890"
+  account3:
+    apiKey: "1234567890"
+    apiSecret: "1234567890"
+
+spot:
+  url:
+  neworderEndpoint:
+  placeMultipleOrderEndpoint:
+
+future:
+  usdm:
+    url:
+    neworderEndpoint:
+    placeMultipleOrderEndpoint:
+  coinm:
+    url:
+    neworderEndpoint:
+    placeMultipleOrderEndpoint:
