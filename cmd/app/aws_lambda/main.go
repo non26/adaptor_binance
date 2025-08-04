@@ -26,7 +26,7 @@ func init() {
 	app.Use(middleware.Secure())
 	app.Use(middleware.RequestID())
 
-	config, err := serviceconfig.ReadConfig()
+	config, err := serviceconfig.ReadAWSAppConfig()
 	if err != nil {
 		log.Fatal(err)
 		return
