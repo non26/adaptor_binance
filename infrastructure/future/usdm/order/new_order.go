@@ -5,7 +5,6 @@ import (
 	"adaptor/helper"
 	"context"
 	"net/http"
-	"strings"
 
 	bncaller "github.com/non26/tradepkg/pkg/bn/bn_caller"
 )
@@ -21,12 +20,7 @@ type BinanceNewOrderRequest struct {
 }
 
 func (n *BinanceNewOrderRequest) PrepareRequest() {
-	n.Symbol = strings.ToUpper(n.Symbol)
-	n.Side = strings.ToUpper(n.Side)
-	// p.PositionSide = strings.ToUpper(p.PositionSide)
-	// p.checkClientOrderId()
-	// p.checkOrderType()
-	// p.setTimestamp()
+	n.Timestamp = helper.GetTimestamp()
 }
 
 func (n *BinanceNewOrderRequest) GetData() interface{} {
@@ -106,7 +100,7 @@ func (b *binanceFutureNewOrder) NewOrder(
 		return nil, err
 	}
 
-	b.service.CallBinance(
+	respone, err := b.service.CallBinance(
 		request,
 		b.baseUrl,
 		b.newOrderEndPoint,
@@ -114,6 +108,9 @@ func (b *binanceFutureNewOrder) NewOrder(
 		secretkey,
 		apikey,
 	)
+	if err != nil {
+		return nil, err
+	}
 
-	return nil, nil
+	return respone, nil
 }

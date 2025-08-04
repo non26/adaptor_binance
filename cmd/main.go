@@ -25,4 +25,6 @@ func main() {
 	}
 
 	route.RouteFuture(app, config)
+
+	app.Start(":8083")
 }
