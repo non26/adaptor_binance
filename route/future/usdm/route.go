@@ -2,7 +2,7 @@ package route
 
 import (
 	serviceconfig "adaptor/config"
-	route1 "adaptor/route/future/usdm/order"
+	route1 "adaptor/route/future/usdm/trade"
 
 	"github.com/labstack/echo/v4"
 )

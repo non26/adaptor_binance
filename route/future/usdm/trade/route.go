@@ -1,10 +1,10 @@
 package route
 
 import (
-	serivceorder "adaptor/api/v1/future/usdtm/order"
+	serivceorder "adaptor/api/v1/future/usdtm/trade"
 	serviceconfig "adaptor/config"
-	handlerorder "adaptor/handler/future/usdm/order"
-	infraorder "adaptor/infrastructure/future/usdm/order"
+	handlerorder "adaptor/handler/future/usdm/trade"
+	infraorder "adaptor/infrastructure/future/usdm/trade"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

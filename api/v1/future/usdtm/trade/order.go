@@ -1,7 +1,7 @@
 package api
 
 import (
-	infrastructure "adaptor/infrastructure/future/usdm/order"
+	infrastructure "adaptor/infrastructure/future/usdm/trade"
 	"context"
 )
 

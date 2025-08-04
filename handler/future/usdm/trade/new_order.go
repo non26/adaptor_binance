@@ -1,9 +1,9 @@
 package handler
 
 import (
-	api "adaptor/api/v1/future/usdtm/order"
+	api "adaptor/api/v1/future/usdtm/trade"
 	"adaptor/helper"
-	infrastructure "adaptor/infrastructure/future/usdm/order"
+	infrastructure "adaptor/infrastructure/future/usdm/trade"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
