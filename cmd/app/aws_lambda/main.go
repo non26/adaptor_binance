@@ -3,6 +3,7 @@ package main
 import (
 	serviceconfig "adaptor/config"
 	route "adaptor/route/future"
+	healthcheck "adaptor/route/health_check"
 	routeLambda "adaptor/route/lambda"
 	"context"
 	"log"
@@ -33,6 +34,7 @@ func init() {
 
 	route.RouteFuture(app, config)
 	routeLambda.UpdateAWSAppConfig(app, config)
+	healthcheck.HealthCheck(app)
 	echoLambda = echoadapter.New(app)
 }
 
