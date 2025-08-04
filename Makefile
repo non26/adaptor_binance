@@ -51,7 +51,7 @@ go-curl:
 	go run curl/main.go
 
 local:
-	go run cmd/main.go
+	go run cmd/app/echo/main.go
 
 go-zip:
 	bash generate-function.sh

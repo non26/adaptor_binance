@@ -2,3 +2,8 @@ config/config.yaml
 config/config.yml
 config/secrets.yaml
 config/secrets.yml
+
+config.yml
+bootstrap
+adaptor_binance.zip
+prd_config.json
