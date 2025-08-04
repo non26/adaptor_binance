@@ -3,6 +3,7 @@ package main
 import (
 	serviceconfig "adaptor/config"
 	route "adaptor/route/future"
+	"fmt"
 	"log"
 
 	"github.com/labstack/echo/v4"
@@ -26,5 +27,5 @@ func main() {
 
 	route.RouteFuture(app, config)
 
-	app.Start(":8083")
+	app.Start(fmt.Sprintf(":%d", config.Port))
 }
