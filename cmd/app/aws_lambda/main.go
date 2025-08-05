@@ -2,9 +2,9 @@ package main
 
 import (
 	serviceconfig "adaptor/config"
-	route "adaptor/route/future"
-	healthcheck "adaptor/route/health_check"
-	routeLambda "adaptor/route/lambda"
+	routefuture "adaptor/route/future"
+	routehealthcheck "adaptor/route/health_check"
+	routelambda "adaptor/route/lambda"
 	"context"
 	"log"
 
@@ -18,6 +18,12 @@ import (
 var echoLambda *echoadapter.EchoLambda
 
 func init() {
+
+	config, err := serviceconfig.ReadAWSAppConfig()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 	app := echo.New()
 	app.Use(middleware.Logger())
 	app.Use(middleware.Recover())
@@ -25,16 +31,10 @@ func init() {
 	app.Use(middleware.BodyLimit("10M"))
 	app.Use(middleware.Secure())
 	app.Use(middleware.RequestID())
+	routehealthcheck.HealthCheck(app)
+	routefuture.RouteFuture(app, config)
+	routelambda.UpdateAWSAppConfig(app, config)
 
-	config, err := serviceconfig.ReadAWSAppConfig()
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-
-	route.RouteFuture(app, config)
-	routeLambda.UpdateAWSAppConfig(app, config)
-	healthcheck.HealthCheck(app)
 	echoLambda = echoadapter.New(app)
 }
 

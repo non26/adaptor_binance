@@ -3,6 +3,7 @@ package main
 import (
 	serviceconfig "adaptor/config"
 	route "adaptor/route/future"
+	routelambda "adaptor/route/lambda"
 	"fmt"
 	"log"
 
@@ -26,6 +27,7 @@ func main() {
 	}
 
 	route.RouteFuture(app, config)
+	routelambda.UpdateAWSAppConfig(app, config)
 
 	app.Start(fmt.Sprintf(":%d", config.Port))
 }
