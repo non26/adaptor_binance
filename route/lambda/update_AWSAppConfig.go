@@ -11,12 +11,12 @@ import (
 func UpdateAWSAppConfig(app *echo.Echo, _config *serviceconfig.ServiceConfig) {
 	app.GET("/update-aws-config", func(c echo.Context) error {
 		var err error
-		_config, err = serviceconfig.ReadAWSAppConfig()
-		if err != nil {
-			return err
-		}
 		type Res struct {
 			Message string `json:"message"`
+		}
+		_config, err = serviceconfig.ReadAWSAppConfig()
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, &Res{Message: err.Error()})
 		}
 		m := Res{}
 		m.Message = "success"
