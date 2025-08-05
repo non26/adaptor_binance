@@ -14,7 +14,7 @@ func HealthCheck(app *echo.Echo) {
 		return c.JSON(
 			http.StatusOK,
 			&HealthCheck{
-				Message: "success ja",
+				Message: "success",
 			},
 		)
 	})
