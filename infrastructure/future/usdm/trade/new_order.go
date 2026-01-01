@@ -27,6 +27,9 @@ func (n *BinanceNewOrderRequest) GetData() interface{} {
 	return n
 }
 
+// for binance response when calling new order endpoint
+// if success binance will return the information of the order
+// if error binance will return the error code and message
 type BinanceNewOrderResponse struct {
 	// for error
 	Code    *int    `json:"code"`
@@ -99,7 +102,6 @@ func (b *binanceFutureNewOrder) NewOrder(
 	if err != nil {
 		return nil, err
 	}
-
 	respone, err := b.service.CallBinance(
 		request,
 		b.baseUrl,
