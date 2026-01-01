@@ -31,7 +31,12 @@ func RouteFutureUsdmOrder(
 		true,
 		false,
 	)
-	_infraOrder := infraorder.NewBinanceFutureNewOrder(bnOrderCaller, config.Future.Usdm.Url, config.Future.Usdm.NewOrderEndpoint, &config.Secret)
+	_infraOrder := infraorder.NewBinanceFutureNewOrder(
+		bnOrderCaller,
+		config.Future.Usdm.Url,
+		config.Future.Usdm.NewOrderEndpoint,
+		&config.Secret,
+	)
 	_serivceOrder := serivceorder.NewOrder(_infraOrder)
 	_handlerOrder := handlerorder.NewMakeOrder(_serivceOrder)
 	app.POST("/fapi/v1/order", _handlerOrder.Handler)

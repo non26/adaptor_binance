@@ -27,6 +27,7 @@ type FutureDetail struct {
 	Url                        string `mapstructure:"url" json:"url"`
 	NewOrderEndpoint           string `mapstructure:"newOrderEndpoint" json:"newOrderEndpoint"`
 	PlaceMultipleOrderEndpoint string `mapstructure:"placeMultipleOrderEndpoint" json:"placeMultipleOrderEndpoint"`
+	KlinesCandleStickEndpoint  string `mapstructure:"klinesCandleStickEndpoint" json:"klinesCandleStickEndpoint"`
 }
 
 type Spot struct {
