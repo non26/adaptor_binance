@@ -7,3 +7,4 @@ config.yml
 bootstrap
 adaptor_binance.zip
 prd_config.json
+uat_config.json
