@@ -31,7 +31,7 @@ func init() {
 	app.Use(middleware.BodyLimit("10M"))
 	app.Use(middleware.Secure())
 	app.Use(middleware.RequestID())
-	routehealthcheck.HealthCheck(app)
+	routehealthcheck.HealthCheck(app, config.HealthcheckMessage)
 	routefuture.RouteFuture(app, config)
 	routelambda.UpdateAWSAppConfig(app, config)
 

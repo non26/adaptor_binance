@@ -1,10 +1,11 @@
 package serviceconfig
 
 type ServiceConfig struct {
-	Secret Secrets `mapstructure:"secret" json:"secret"`
-	Future Future  `mapstructure:"future" json:"future"`
-	Spot   Spot    `mapstructure:"spot" json:"spot"`
-	Port   int     `mapstructure:"port" json:"port"`
+	HealthcheckMessage string  `mapstructure:"healthcheckMessage" json:"healthcheckMessage"`
+	Secret             Secrets `mapstructure:"secret" json:"secret"`
+	Future             Future  `mapstructure:"future" json:"future"`
+	Spot               Spot    `mapstructure:"spot" json:"spot"`
+	Port               int     `mapstructure:"port" json:"port"`
 }
 
 type Secrets struct {
