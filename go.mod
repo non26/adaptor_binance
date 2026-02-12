@@ -8,7 +8,7 @@ require (
 	github.com/aws/aws-lambda-go v1.49.0
 	github.com/awslabs/aws-lambda-go-api-proxy v0.16.2
 	github.com/labstack/echo/v4 v4.13.4
-	github.com/non26/tradepkg v0.3.0
+	github.com/non26/tradepkg v0.3.2
 	github.com/spf13/viper v1.20.1
 )
 

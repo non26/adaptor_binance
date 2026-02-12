@@ -3,6 +3,7 @@ package main
 import (
 	serviceconfig "adaptor/config"
 	route "adaptor/route/future"
+	healthcheck "adaptor/route/health_check"
 	routelambda "adaptor/route/lambda"
 	"fmt"
 	"log"
@@ -26,6 +27,7 @@ func main() {
 		return
 	}
 
+	healthcheck.HealthCheck(app, config.HealthcheckMessage)
 	route.RouteFuture(app, config)
 	routelambda.UpdateAWSAppConfig(app, config)
 
